@@ -1,0 +1,12 @@
+<div class="col">
+    <div class="card" style="width: 18rem;">
+        <img [src]="product.imagePath" class="card-img-top" alt="image">
+        <div class="card-body">
+            <h5 class="card-title">{{product.title}}</h5>
+            <p class="card-text"> {{product.description}} </p>
+            <h4 class="text-primary"> {{ product.price }} LKR</h4>
+            <h6 class="text-warning float-left"> {{product.availableQty}} Available</h6>
+            <a href="#" class="btn btn-success float-right">Add to Cart</a>
+        </div>
+    </div>
+</div>

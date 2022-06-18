@@ -1,0 +1,172 @@
+<div class="container">
+  <h2 class="mt-5">Student Registration Form</h2>
+
+  <form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+
+      <!-- <div class="col-6">
+          <div class="form-group">
+              <label>First Name</label>
+              <input type="text" class="form-control" formControlName="firstName" placeholder="Enter First Name" [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors}">
+          <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+              <div *ngIf="f['firstName'].errors['required']">First Name is required</div>
+          </div> -->
+
+          <div class="col-6">
+            <div class="form-group">
+                <label>First Name</label>
+                <div class="input-group">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="basic-addon2">
+                      <i class="fa-solid fa-user" *ngIf="f.firstName.valid"></i>
+                      <i class="fa-solid fa-user-xmark"  *ngIf="f.firstName.invalid"></i>
+                    </span>
+                  </div>
+                  <input type="text" class="form-control" formControlName="firstName" placeholder="Enter First Name"
+                [ngClass]="{ 'is-invalid': (submitted && f.firstName.errors) || (f.firstName.errors &&  f.firstName.touched)
+                }">
+             </div>
+                <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+                    <div *ngIf="f.firstName.errors.required">FirstName is Required</div>
+                    <div *ngIf="f.firstName.errors.pattern">FirstName is Required</div>
+                  </div>
+        </div>
+      </div>
+
+      <div class="col-6">
+          <div class="form-group">
+              <label>Last Name</label>
+              <div class="input-group">
+              <div class="input-group-append">
+                <span class="input-group-text" id="basic-addon2">
+                  <i class="fa-solid fa-user" *ngIf="f.lastName.valid"></i>
+                  <i class="fa-solid fa-user-xmark"  *ngIf="f.lastName.invalid"></i>
+                </span>
+              </div>
+              <input type="text" class="form-control" formControlName="lastName" placeholder="Enter Last Name"
+              [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
+             </div>
+                <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+                    <div *ngIf="f.lastName.errors.pattern">LastName is Required</div>
+            </div>
+          </div>
+      </div>
+
+      <div class="col-6">
+          <div class="form-group">
+              <label>DOB</label>
+              <div class="input-group">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2">
+                    <i class="fa-solid fa-calendar-check" *ngIf="f.dob.valid"></i>
+                    <i class="fa-solid fa-calendar-xmark"  *ngIf="f.dob.invalid"></i>
+                  </span>
+                </div>
+              <input type="date" class="form-control" formControlName="dob" placeholder="Enter DOB"
+              [ngClass]="{ 'is-invalid': submitted && f.dob.errors }"></div>
+              <div *ngIf="submitted && f.dob.errors" class="invalid-feedback">
+                  <div *ngIf="f.dob.errors.required">DOB is Required</div>
+              </div>
+          </div>
+      </div>
+
+      <div class="col-6">
+          <div class="form-group">
+              <label>Contact No</label>
+              <div class="input-group">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2">
+                    <i class="fa-solid fa-phone-flip" *ngIf="f.contactNo.valid"></i>
+                    <i class="fa-solid fa-phone-slash"  *ngIf="f.contactNo.invalid"></i>
+                  </span>
+                </div>
+              <input type="text" class="form-control" formControlName="contactNo" placeholder="Enter Contact No"
+              [ngClass]="{ 'is-invalid': submitted && f.contactNo.errors }"></div>
+              <div *ngIf="submitted && f.contactNo.errors" class="invalid-feedback">
+                  <div *ngIf="f.contactNo.errors.required">Contact No is Required</div>
+              </div>
+          </div>
+      </div>
+      <div class="col-6">
+          <div class="form-group">
+              <label>Address</label>
+              <div class="input-group">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2">
+                    <i class="fa-solid fa-location-dot" *ngIf="f.address.valid"></i>
+                    <i class="fa-solid fa-location-pin-lock"  *ngIf="f.address.invalid"></i>
+                  </span>
+                </div>
+              <textarea class="form-control" rows="3" formControlName="address" placeholder="Enter Address"
+              [ngClass]="{ 'is-invalid': submitted && f.address.errors }"></textarea></div>
+              <div *ngIf="submitted && f.address.errors" class="invalid-feedback">
+                  <div *ngIf="f.address.errors.required">Address is Required</div>
+              </div>
+
+          </div>
+      </div>
+
+      <div class="col-6">
+          <div class="form-group">
+              <label>Email</label>
+              <div class="input-group">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2">
+                    <i class="fa-solid fa-envelope" *ngIf="f.email.valid"></i>
+                    <i class="fa-solid fa-circle-xmark"  *ngIf="f.email.invalid"></i>
+                  </span>
+                </div>
+              <input type="text" class="form-control" formControlName="email" placeholder="Enter Email"
+              [ngClass]="{ 'is-invalid': submitted && f.email.errors }"></div>
+              <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">Email is Required</div>
+                  <div *ngIf="f.email.errors.email">Email is Required</div>
+              </div>
+          </div>
+      </div>
+      <div class="col-6">
+          <div class="form-group">
+              <label>Password</label>
+              <div class="input-group">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2">
+                    <i class="fa-solid fa-key" *ngIf="f.password.valid"></i>
+                    <i class="fa-solid fa-circle-exclamation"  *ngIf="f.password.invalid"></i>
+                  </span>
+                </div>
+              <input type="password" class="form-control" formControlName="password" placeholder="Enter Password"
+              [ngClass]="{ 'is-invalid': submitted && f.password.errors }"></div>
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">Password is Required</div>
+                  <div *ngIf="f.password.errors.minlength">Password is Required</div>
+              </div>
+          </div>
+      </div>
+      <div class="col-6">
+          <div class="form-group">
+              <label>Confirm Password</label>
+              <div class="input-group">
+                <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2">
+                    <i class="fa-solid fa-key" *ngIf="f.comPassword.valid"></i>
+                    <i class="fa-solid fa-circle-exclamation"  *ngIf="f.comPassword.invalid"></i>
+                  </span>
+                </div>
+              <input type="password" class="form-control" formControlName="comPassword" placeholder="Enter Confirm Password"
+              [ngClass]="{ 'is-invalid': submitted && f.comPassword.errors }"></div>
+              <div *ngIf="submitted && f.comPassword.errors" class="invalid-feedback">
+                  <div *ngIf="f.comPassword.errors.required">Comfirm Password is Required</div>
+                  <div *ngIf="f.comPassword.errors.mustMatch"> Password does not match</div>
+              </div>
+          </div>
+      </div>
+      <button type="submit" class="btn btn-primary mb-4" [disabled]="isLoading"><i *ngIf="isLoading" class="fas fa-spinner fa-spin"></i>Submit</button>
+      <button type="button" class="btn btn-secondary ml-2 mb-4" (click)="clearForm()"><i *ngIf="isClear" class="fa-solid fa-eraser fa-beat-fade"></i> Clear</button>
+      <button type="button" class="btn  ml-2 mb-4" (click)="setAsPasswordRequired()">Set as Password Required</button>
+
+
+
+
+
+  </form>
+
+</div>

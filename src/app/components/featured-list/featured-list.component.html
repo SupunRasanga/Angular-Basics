@@ -1,0 +1,35 @@
+<div class="col-12">
+
+    <div class="row">
+        <h3 class="m-5">Most Recent Products</h3>
+    </div>
+
+    <div class="row">
+
+        <div class="col-12">
+
+            <div *ngFor="let product of products" class="p-2">
+                <!-- Used a variable to [ngClass]-->
+                <!-- <div class="card" [ngClass]="cardColor"> -->
+
+                <!-- Used a function to [ngClass] -->
+                <!-- <div class="card" [ngClass]="getCardColor(product.availableQty)"> -->
+
+                <div class="card" [ngClass]="(product.availableQty > 50) ? 'bg-info' : 'bg-warning'">
+                    <div class="card-body">
+                        <div class="float-left">
+                            <h5>{{product.title}}</h5>
+                            <p>{{product.description}}</p>
+                        </div>
+                        <div class="float-right">
+                            <img [src]="product.imagePath" alt="image" width="100px">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

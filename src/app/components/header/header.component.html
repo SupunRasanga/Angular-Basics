@@ -1,0 +1,67 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">MyApp</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/product-list">Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/ft-list">Ft. Products</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/post-list">Posts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/pipes">Pipes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/observable">observable</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/template-driven-form">Template-Driven-Form</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/reactive-form">Reactive-Form</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/invoice">Invoice</a>
+        </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/customer">Customer</a>
+        </li>
+
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                    data-toggle="dropdown" aria-expanded="false">
+                    Dropdown link
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" routerLink="/parent">Parent View</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="user-reg">User Registration</a>
+                </div>
+            </li>
+        </ul>
+
+        <ul class="nav float-right" *ngIf="userName">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                    data-toggle="dropdown" aria-expanded="false">
+                   {{userName}}
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" (click)="logout()">LogOut</a>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+</nav>

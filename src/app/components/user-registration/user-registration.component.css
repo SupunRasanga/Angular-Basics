@@ -1,0 +1,15 @@
+
+input[type=radio] ,input[type=checkbox] {
+  border: 0px;
+  width: 18px;
+  height: 2em;
+}
+
+.background{
+  background-image: url('https://images.pexels.com/photos/1323712/pexels-photo-1323712.jpeg?cs=srgb&dl=pexels-aleksandar-pasaric-1323712.jpg&fm=jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 125vh;
+}
+
+

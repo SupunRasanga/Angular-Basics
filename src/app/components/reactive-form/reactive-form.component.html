@@ -1,0 +1,59 @@
+<div class="container">
+    <h2 class="mt-5">Student Registration Form</h2>
+
+   <form #f="ngForm" action="" novalidate (ngSubmit)="onSubmit()">
+    <fieldset ngModelGroup="name">
+    <div class="col-6">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" class="form-control" #firstName="ngModel"
+        [ngClass]="{'is-invalid':firstName.invalid && (firstName.dirty || firstName.touched),
+                      'is-valid':firstName.valid && (firstName.dirty || firstName.touched)}" placeholder="Enter First Name" name="fname" ngModel [(ngModel)]="studentModel.firstName" required>
+
+        <div class="invalid-feedback">Please Enter First Name</div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="email" class="form-control is-valid" placeholder="Enter Last Name" name="lname" ngModel [(ngModel)]="studentModel.lastName">
+      </div>
+    </div>
+  </fieldset>
+
+    <div class="col-6">
+      <div class="form-group">
+        <label>Email</label>
+        <input type="text" class="form-control" #email="ngModel"
+                      [ngClass]="{'is-invalid':email.invalid && (email.dirty || email.touched),
+                      'is-valid':email.valid && (email.dirty || email.touched)}"
+                       placeholder="Enter Email" name="email" ngModel [(ngModel)]="studentModel.email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+        <div class="invalid-feedback">Please Enter valid email</div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="form-group">
+        <label>Password</label>
+        <input type="password" class="form-control" placeholder="Enter Password" autocomplete="off" name="password" ngModel [(ngModel)]="studentModel.password" required minlength="8">
+        <div class="invalid-feedback"> Please Enter atleast 8 chars. </div>
+      </div>
+    </div>
+
+    <div class="col-6">
+      <div class="form-group">
+        <label>Language</label>
+        <select class="form-control" name="language" ngModel [(ngModel)]="studentModel.language">
+            <option value="" disabled selected >Select Language</option>
+            <option *ngFor="let lang of languages" [value]="lang">{{lang}}</option>
+        </select>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" >Submit</button>
+
+   </form>
+<p>{{f.value | json}}</p>
+  </div>
+

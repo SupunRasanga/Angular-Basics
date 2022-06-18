@@ -1,0 +1,21 @@
+<h2>parent works!</h2>
+
+<div class="col-4">
+    <div class="form-group">
+        <label for="">Sample Text</label>
+        <input type="text" class="form-control" placeholder="Enter Text here..."  [(ngModel)]="someTexts">
+    </div>
+</div>
+
+<app-child></app-child>
+
+<button class="btn btn-primary" type="button" (click)="toggleChild()">Toggle Child</button>
+
+<br><br><br>
+
+<div class="col-4">
+    <div class="form-group">
+        <label for="">Amount</label>
+        <input type="text" class="form-control" appCurrencyInput [currencyCode]="'€'" placeholder="Enter Amount">
+    </div>
+</div>

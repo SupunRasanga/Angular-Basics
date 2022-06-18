@@ -1,0 +1,36 @@
+<div class="row">
+
+    <div class="col-12">
+
+        <div class="row">
+            <h3 class="display-4 m-5">Product List</h3>
+        </div>
+
+        <div class="row">
+
+
+            <div *ngFor="let product of products">
+
+                <app-product [product]="product"></app-product>
+
+            </div>
+
+        </div>
+
+        <!-- <div class="row">
+
+            <div class="col-12 p-2" *ngFor="let post of postList">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"> {{ post.title }}</h5>
+                        <p class="card-text"> {{ post.body}} </p>
+                        <a href="#" class="card-link">View</a>
+                    </div>
+                </div>
+            </div>
+
+        </div> -->
+
+    </div>
+
+</div>

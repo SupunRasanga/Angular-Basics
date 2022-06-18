@@ -1,0 +1,49 @@
+<div class="container">
+    <h2 class="m-5">Post List</h2>
+    <div class="row">
+        <div class="col-12">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let post of postList | slice: (page - 1) * pageSize : page * pageSize">
+                        <td> {{ post.id }}</td>
+                        <td> {{ post.title }} </td>
+                        <td> {{ post.body }} </td>
+                        <td>
+                            <!-- <a class="btn btn-sm btn-primary" role="button"
+                            (click)="gotoDetailsPage(post.id)">Open</a> -->
+                            <a class="btn btn-sm btn-primary mr-2" role="button"
+                                [routerLink]="['/post-list', post.id]">Update</a>
+
+                            <a class="btn btn-sm btn-secondary" role="button"
+                                [routerLink]="['/post-details', {type: 'view', postId: post.id }]">View</a>
+
+                            <!-- Using Query Params method -->
+                            <a class="btn btn-sm btn-warning" role="button"
+                                [routerLink]="['/post-details']" [queryParams]="{type: 'view', id: post.id }">View2</a>
+
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="float-left">
+                <b>{{ collectionSize }} Records Found!</b>
+            </div>
+
+            <div class="float-right">
+                <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="collectionSize">
+                </ngb-pagination>
+            </div>
+
+        </div>
+    </div>
+</div>

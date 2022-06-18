@@ -1,0 +1,133 @@
+<div class="container">
+  <div class="mt-5">
+
+    <p ngNonBindable> {{myString | uppercase}}</p>
+    <h2>{{myString1 | uppercase}}</h2>
+    <br>
+    <p ngNonBindable> {{myString | lowercase}}</p>
+    <h2>{{myString2 | lowercase}}</h2>
+    <br>
+
+    <p ngNonBindable> {{amount | currency}}Default</p>
+    <h2>{{amount | currency}}</h2>
+
+    <p ngNonBindable> {{amount | currency}}Update Currency Symbol</p>
+    <h2>{{amount | currency: 'EUR'}}</h2>
+
+    <p ngNonBindable> {{amount | currency}}Display Currency Code</p>
+    <h2>{{amount | currency: 'EUR': 'code'}}</h2>
+
+    <!-- Date -->
+    <p ngNonBindable> {{currentDate | date}}Default</p>
+    <h2>{{currentDate | date}}</h2>
+
+    <p ngNonBindable> {{currentDate | date: 'shortDate'}}shortDate</p>
+    <h2>{{currentDate | date: 'shortDate'}}</h2>
+
+    <p ngNonBindable> {{currentDate | date: 'fullDate'}}fullDate</p>
+    <h2>{{currentDate | date: 'fullDate'}}</h2>
+
+    <p ngNonBindable> {{currentDate | date: 'shortTime'}}shortTime</p>
+    <h2>{{currentDate | date: 'shortTime'}}</h2>
+
+    <p ngNonBindable> {{currentDate | date: 'fullTime'}}fullTime</p>
+    <h2>{{currentDate | date: 'fullTime'}}</h2>
+
+    <p ngNonBindable> {{currentDate | date: 'dd/MM/yyyy'}}Formated date</p>
+    <h2>{{currentDate | date: 'dd/mm/yyyyy'}}</h2>
+
+    <p ngNonBindable> {{currentDate | date: 'HH/mm/ss'}}Formated Time</p>
+    <h2>{{currentDate | date: 'hh/mm/ss'}}</h2>
+
+
+    <!-- Number -->
+    <p ngNonBindable> {{total | dec}}Formated Time</p>
+    <h2>{{total | number}}</h2>
+
+    <p ngNonBindable> {{total | '1.2'}}Formated Time</p>
+    <h2>{{total | number: '1.2'}}</h2>
+
+    <p ngNonBindable> {{total | '5.2-3'}}Formated Time</p>
+    <h2>{{total | number: '5.2-3'}}</h2>
+
+    <!-- Percentage -->
+    <p ngNonBindable> {{percentageVal | precent}}Formated Time</p>
+    <h2>{{percentageVal | percent}}</h2>
+
+    <p ngNonBindable> {{percentageVal | precent: '5.1-2'}}Formated Time</p>
+    <h2>{{percentageVal | percent: '5.1-2'}}</h2>
+
+    <!-- JSON -->
+    <p ngNonBindable> {{ myObject | json }} JSON</p>
+    <h2> {{ myObject | json }}</h2>
+    <br>
+    <!-- Reverse String -->
+    <h2>{{ myString1 | reverse }}</h2>
+
+    <!-- Using multiple pieps -->
+    <h2>{{ myString2|reverse | uppercase }}</h2>
+    <br>
+    <!-- SQ Root -->
+    <h2>SQ Root of 80 : {{ 80 | sqroot: 'inch' }}</h2>
+
+    <br>
+
+    <form>
+
+      <div *ngIf="alert" class="alert alert-success" role="alert">
+        Thank you {{uGender| gender}} {{uName}} ! you have booked {{tCount}} tickets.
+      </div>
+
+      <div class="form-group">
+        <label>Name</label>
+        <input type="email" class="form-control" [(ngModel)]="uName" [ngModelOptions]="{standalone: true}">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group">
+        <label>Count of Tickets</label>
+        <input type="number" class="form-control" [(ngModel)]="tCount" [ngModelOptions]="{standalone: true}">
+      </div>
+
+      <div class="form-group">
+        <label>Gender</label>
+      <select class="form-control" [(ngModel)]="uGender" [ngModelOptions]="{standalone: true}">
+        <option>Male</option>
+        <option>Female</option>
+      </select>
+    </div>
+
+      <div class="form-group form-check">
+        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="respond()">Book</button>
+    </form>
+
+    <br><br>
+
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Age</th>
+          <th scope="col">Gender</th>
+          <th scope="col">Category</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <th scope="row">{{user.id}}</th>
+          <td>{{user.gender |gender}} {{user.name}}</td>
+          <td>{{user.age}}</td>
+          <td>{{user.gender}}</td>
+          <td>{{user.age|category}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+

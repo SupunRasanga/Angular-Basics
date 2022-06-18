@@ -1,0 +1,26 @@
+<div class="container">
+
+    <div class="row mt-5">
+        <div class="col-12" *ngIf="post">
+            <form>
+                <div class="form-group">
+                    <label>Post Id</label>
+                    <input type="text" class="form-control" [(ngModel)]="post.id"
+                    [readonly]="isReadonly" [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" class="form-control" [(ngModel)]="post.title" 
+                    [readonly]="isReadonly" [ngModelOptions]="{standalone: true}">
+                </div>
+                <div class="form-group">
+                    <label>Title</label>
+                    <textarea class="form-control" [(ngModel)]="post.body" rows="4" 
+                    [readonly]="isReadonly" [ngModelOptions]="{standalone: true}"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Save</button>
+            </form>
+        </div>
+    </div>
+
+</div>
